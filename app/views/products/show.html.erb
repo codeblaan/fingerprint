@@ -1,0 +1,13 @@
+
+<h1><%= @product.name %></h1>
+<table>
+  <th>Model</th>
+  <th>Price</th>
+  <% @results.each do |result| %>
+    <tr>
+      <td><%= result['model'] %></td>
+      <td><%= result['price'] %> <%= result['price_currency']%></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Back to search', products_path %>
