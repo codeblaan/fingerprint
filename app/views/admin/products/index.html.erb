@@ -1,0 +1,17 @@
+<%= render partial: 'nav' %>
+<div class="uk-vertical-align uk-text-center">
+  <div class="uk-vertical-align-middle">
+    <table>
+      <th>Product</th>
+      <th>Semantics Cache Date</th>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= link_to product.name, admin_product_path(id: product.id) %></td>
+          <td>
+            <%= product.cache.present? ? product.cache.created_at : 'N/A'%>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

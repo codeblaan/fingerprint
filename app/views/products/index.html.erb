@@ -1,15 +1,9 @@
-<nav class="uk-navbar uk-margin-large-bottom">
-  <%= link_to 'Product Search', products_path, class: 'uk-navbar-brand' %>
-</nav>
-<div class="uk-vertical-align uk-text-center uk-height-1-1">
-  <div class="uk-vertical-align-middle product-search-box">
-  <%= form_tag(search_products_path, method: 'get', class: 'uk-panel uk-panel-box uk-form') do %>
-    <div class="uk-form-row">
-      <%= text_field_tag(:term, '', placeholder: 'Product name', class: "uk-width-1-1 uk-form-large") %>
-    </div>
-    <div class="uk-form-row">
-      <%= submit_tag('Search', class:"uk-width-1-1 uk-button uk-button-primary uk-button-large product-search-submit") %>
-    </div>
-  <% end %>
+<%= render partial: 'nav' %>
+<%= form_tag(search_products_path, method: 'get', class: 'uk-panel uk-panel-box uk-form') do %>
+  <div class="uk-form-row">
+    <%= text_field_tag(:term, '', placeholder: 'Product name', class: "uk-width-1-1 uk-form-large") %>
   </div>
-</div>
+  <div class="uk-form-row">
+    <%= submit_tag('Search', class:"uk-width-1-1 uk-button uk-button-primary uk-button-large") %>
+  </div>
+<% end %>

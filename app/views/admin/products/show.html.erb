@@ -1,0 +1,22 @@
+<%= render partial: 'nav' %>
+<div class="uk-vertical-align">
+  <div class="uk-vertical-align-middle">
+    <h1>Product Overview</h1>
+    <%= link_to('Refetch Cache', fetch_cache_admin_product_path(@product), method: :post, class: 'uk-button uk-button-primary uk-button') %>
+    <%= link_to('Destroy', admin_product_path(@product), method: :delete, class: 'uk-button uk-button-danger uk-button') %>
+    <h2>Id</h2>
+    <div><%= @product.id %></div>
+    <h2>Name</h2>
+    <div><%= @product.name %></div>
+    <h2>Cache</h2>
+    <div>
+      <% if @product.cache.present? %>
+        Created At: <%= @product.cache.created_at %>
+        <pre><%= @product.cache.present? ? @product.cache.response : 'N/A'%></pre>
+      <% else %>
+        N/A
+      <% end %>
+    </div>
+
+  </div>
+</div>

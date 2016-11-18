@@ -26,4 +26,23 @@ RSpec.describe SemanticsService do
       end
     end
   end
+
+  describe '#fetch_and_cache' do
+    it 'caches the results of the response from semantics' do
+      product = FactoryGirl.create(:iphone, :with_no_cache)
+      expect(product.cache).to eql(nil)
+      service = SemanticsService.new(product)
+      allow(service).to receive(:sem3) {
+        double(
+          products_field: double,
+          get_products: {
+            'code' => 'OK', 'results' => [{'model' => 'iphone 2'}]
+          }
+        )
+      }
+      service.fetch_and_cache
+      product.reload
+      expect(product.cache.response['results'][0]['model']).to eq('iphone 2')
+    end
+  end
 end

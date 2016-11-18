@@ -11,11 +11,15 @@ class SemanticsService
     if cached?
       @response = @product.cache.response
     else
-      sem3.products_field('search', @product.name)
-      @response = sem3.get_products
-      cache_response
+      fetch_and_cache
     end
     @response || {}
+  end
+
+  def fetch_and_cache
+    sem3.products_field('search', @product.name)
+    @response = sem3.get_products
+    cache_response
   end
 
   def sem3

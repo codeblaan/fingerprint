@@ -1,12 +1,7 @@
-<nav class="uk-navbar uk-margin-large-bottom">
-  <%= link_to 'Product Search', products_path, class: 'uk-navbar-brand' %>
-  <ul class="uk-navbar-nav">
-    <li><%= link_to @product.name, product_path(id: @product.name) %></li>
-  </ul>
-</nav>
+<%= render partial: 'nav' %>
 <div class="uk-vertical-align uk-text-center">
   <div class="uk-vertical-align-middle">
-    <table class="uk-panel uk-panel-box">
+    <table>
       <th>Model</th>
       <th>Price</th>
       <% @results.each do |result| %>

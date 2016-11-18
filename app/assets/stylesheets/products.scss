@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.product-search-box {
-  width: 400px;
-}
-
 table {
-  width: 400px;
+  min-width: 400px;
   margin: 0 auto;
   tr {
     height: 40px;
   }
+}
+
+table, td, th {
+  border: 1px solid black;
 }
